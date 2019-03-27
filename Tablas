@@ -1,0 +1,39 @@
+import java.lang.Thread;
+import java.util.*;
+
+public class Tablas implements Runnable{
+int Contador = 0;
+public Tablas(){}
+
+public void run(){
+
+try{
+
+System.out.println("El Programa Ha Comenzado");
+
+Thread.sleep(1000);
+
+for(int i=1; i<11; i=i+1){
+for(int j=1; j<11; j=j+1){
+Thread.sleep(500);
+Contador = Contador + 500;
+System.out.println(i+"x"+j+" = "+(i*j)+" ----->  Tiempo Del Programa Ejecutado: "+Contador);
+}
+}
+
+System.out.println("El Programa Ha Finalizado");
+
+}catch(Exception Ex){
+System.exit(0);
+} Thread.yield();
+ 
+}
+
+
+public static void main(String args[]){
+Tablas t = new Tablas();
+Thread Hilo = new Thread(t);
+Hilo.start();
+}
+
+}
